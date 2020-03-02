@@ -8,6 +8,7 @@ RUN apt-get update && \
   echo deb "http://download.proxmox.com/debian wheezy pve" >> /etc/apt/sources.list && \
   wget -O- "http://download.proxmox.com/debian/key.asc" | apt-key add - && \
   apt-get update && \
+  apt-get install -y qemu-utils && \
   apt-get download pve-qemu-kvm && \
   dpkg --fsys-tarfile ./pve-qemu-kvm*.deb | tar xOf - ./usr/bin/vma > ./vma && \
   chmod u+x ./vma && \
